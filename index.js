@@ -37,6 +37,10 @@ async function sendWA(number, message) {
   );
 }
 
+app.get("/", (req, res) => {
+  res.send("Server OK from Nichenesia OTP");
+});
+
 app.post("/login-request", async (req, res) => {
   const { role, destination, method } = req.body;
   const otp = generateOTP();
@@ -74,7 +78,6 @@ app.listen(PORT, () => {
   console.log(`✅ Server OTP berjalan di PORT ${PORT}`);
 });
 
-// Tangani error uncaught
 process.on("uncaughtException", (err) => {
   console.error("Uncaught Exception:", err);
 });
