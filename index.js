@@ -69,7 +69,7 @@ app.post("/verify-otp", (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`✅ Server OTP berjalan di PORT ${PORT}`);
 });
