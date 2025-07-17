@@ -54,7 +54,7 @@ app.post("/login-request", async (req, res) => {
       res.json({ message: "OTP dikirim ke user." });
     }
   } catch (err) {
-    console.error(err);
+    console.error("Gagal mengirim OTP:", err);
     res.status(500).json({ error: "Gagal mengirim OTP" });
   }
 });
@@ -69,6 +69,7 @@ app.post("/verify-otp", (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Server running on http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`✅ Server OTP berjalan di PORT ${PORT}`);
 });
