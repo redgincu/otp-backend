@@ -69,7 +69,15 @@ app.post("/verify-otp", (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`✅ Server OTP berjalan di PORT ${PORT}`);
+});
+
+// Tangani error uncaught
+process.on("uncaughtException", (err) => {
+  console.error("Uncaught Exception:", err);
+});
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("Unhandled Rejection at:", promise, "reason:", reason);
 });
